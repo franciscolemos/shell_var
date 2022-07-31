@@ -5,6 +5,7 @@ git clone https://github.com/franciscolemos/shell_var.git
 cd shell_var
 pip install -r requirements.txt  # install
 ```
+</details>
 
 Check seasonality
 python .\seasonality.py --pkf .\datasets\electricity.pkl
