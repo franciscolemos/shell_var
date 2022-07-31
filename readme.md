@@ -1,4 +1,4 @@
-Install
+<summary>Install</summary>
 git clone 
 cd PVAR #Price Forecasting using a Vector Autoregression (VAR) Model
 pip install -r requirements.txt  # install
