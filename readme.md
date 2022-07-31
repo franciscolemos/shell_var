@@ -2,7 +2,9 @@
 <summary>Install</summary>
 
 git clone https://github.com/franciscolemos/shell_var.git
+<br>
 cd shell_var
+<br>
 pip install -r requirements.txt  # install
 </details>
 
