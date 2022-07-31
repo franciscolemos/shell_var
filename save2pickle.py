@@ -34,6 +34,5 @@ def main(param):
         print("An exception as occurred. The series %s could not be save to %s \n %s" % (series_ID, pickle_file, e))
 
 if __name__ == "__main__":
-    opt = options()
     param = options.parse_opt()
     main(param)
