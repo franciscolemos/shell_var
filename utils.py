@@ -35,13 +35,13 @@ class options():
                     print("Nothing done")
 
 class var_model_accuracy():
-    def __init_self(self, param):
+    def __init__(self, param):
         self.training_set = np.load(param.otr[0])
         self.test_set = np.load(param.ote[0])
         self.master_df = pd.read_pickle(param.oss[0])
         self.tts = param.tts
     
-    def calculate_model_accuracy_metrics(actual, predicted):
+    def calculate_model_accuracy_metrics(self, actual, predicted):
         """
         Output model accuracy metrics, comparing predicted values
         to actual values.
@@ -65,7 +65,6 @@ class var_model_accuracy():
         rmse = sqrt(mse)
         print('RMSE: %f' % rmse)
         return [bias, mae, mse, rmse]
-
 
     def var_model(self):
         model = VAR(endog=self.training_set)
@@ -99,7 +98,7 @@ class var_model_accuracy():
         #Compare the forecasted data to the real data
         print(self.master_df[self.master_df['Predicted']==1][['Date','Price_x', 'Predicted_Electricity_Price']])
 
-        self.kpi = calculate_model_accuracy_metrics(list(self.master_df[self.master_df['Predicted']==1]['Price_x']), 
+        self.kpi = self.calculate_model_accuracy_metrics(list(self.master_df[self.master_df['Predicted']==1]['Price_x']), 
                                     list(self.master_df[self.master_df['Predicted']==1]['Predicted_Electricity_Price']))
 
     def save_results(self):
