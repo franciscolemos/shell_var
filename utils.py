@@ -12,6 +12,7 @@ class options():
         parser.add_argument('--oss', type=str, nargs='+', default='', help='Open stationary series')
         parser.add_argument('--otr', type=str, nargs='+', default='', help='Open training set')
         parser.add_argument('--ote', type=str, nargs='+', default='', help='Open test set')
+        parser.add_argument('--tts', type=int, default=70, help='Train test split')
         opt = parser.parse_known_args()[0] if known else parser.parse_args()
         return opt
 
