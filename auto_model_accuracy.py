@@ -29,6 +29,7 @@ def calculate_model_accuracy_metrics(actual, predicted):
     print('MSE: %f' % mse)
     rmse = sqrt(mse)
     print('RMSE: %f' % rmse)
+    return [bias, mae, mse, rmse]
 
 def accuracy(param):
     training_set = np.load(param.otr[0])
@@ -67,8 +68,14 @@ def accuracy(param):
     print(master_df[master_df['Predicted']==1][['Date','Price_x', 'Predicted_Electricity_Price']])
     
     #Evaluate the accuracy of the results, pre un-differencing and back-transformation
-    calculate_model_accuracy_metrics(list(master_df[master_df['Predicted']==1]['Price_x']), 
+    kpi = calculate_model_accuracy_metrics(list(master_df[master_df['Predicted']==1]['Price_x']), 
                                     list(master_df[master_df['Predicted']==1]['Predicted_Electricity_Price']))
+    
+    fileKPI = 'results.csv'
+    kpi = [param.tts, 100 - param.tts] + kpi
+    dataSetSizes = pd.DataFrame(kpi).T
+    dataSetSizes.to_csv(fileKPI, mode='a', index=False, header = False)
+
 if __name__ == "__main__":
     param = options.parse_opt()
     accuracy(param)
