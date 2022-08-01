@@ -39,6 +39,16 @@ python3 var_model.py --oss datasets/m2s_stationary.pkl
 </details>
 
 <details open>
-<summary>VAR accuracy
+<summary>VAR accuracy</summary>
 python3 model_accuracy.py --otr datasets/train.npy  --ote datasets/test.npy --oss datasets/m2s_stationary.pkl
+</details>
+
+<details open>
+<summary>VAR accuracy</summary>
+python3 model_accuracy.py --otr datasets/train.npy  --ote datasets/test.npy --oss datasets/m2s_stationary.pkl
+</details>
+
+<details open>
+<summary>Train/test split automated</summary>
+python3 auto.py
 </details>
