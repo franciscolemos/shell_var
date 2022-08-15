@@ -31,7 +31,7 @@ python3 merge2series.py --m2s datasets/natural_gas.pkl datasets/electricity.pkl 
 
 <details open>
 <summary>Granger causality</summary>
-python3 grander2series.py --oss datasets/m2s.pkl -mxl 3
+python3 grander2series.py --oss datasets/m2s.pkl --mxl 3
 </details>
 
 
